@@ -1,4 +1,4 @@
-import spade
+import asyncio
 from spade.agent import Agent
 from spade.behaviour import OneShotBehaviour
 
@@ -15,9 +15,14 @@ class BasicAgent(Agent):
         self.add_behaviour(HelloBehaviour())
 
 
-if __name__ == "__main__":
+async def main():
     agent = BasicAgent(
-        "agent1@localhost",
-        "agent1pass"
+        "nmy403agent@xmpp.jp",   # or your working XMPP server
+        "1Minta"
     )
-    agent.start()
+    await agent.start()
+    await asyncio.sleep(1)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
